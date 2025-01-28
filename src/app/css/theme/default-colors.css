@@ -1,0 +1,84 @@
+:root{
+    --color-info:#539BFF;
+    --color-success:#13DEB9;
+    --color-warning:#FFAE1F;
+    --color-error:#FA896B;
+    --color-lightsuccess:#13DEB920;
+    --color-lighterror:#FA896B20;
+    --color-lightinfo:#EBF3FE;
+    --color-darkinfo:#223662;
+    --color-lightwarning:#FFAE1F20;
+    --color-white:#fff ;
+	--color-dark:#202936;
+    --color-border:#dfe5ef;
+    --color-darkborder:#333f55;
+    --color-link:#2a3547;
+    --color-muted:#5a6a85;
+    --color-darklink:#7c8fac;
+    --color-lightgray:#f6f9fc;
+    --color-bgmuted:#eff4fa;
+    --color-darkgray:#465670;
+    --color-bodytext:#5a6a85;
+    --color-darkmuted:#2a3851;
+    --color-error-emphasis:#d5745b;
+    --color-darkmuted:#2A3851;
+    --color-lightmuted:#5D7287;
+    --color-warning-emphasis:#d9941a;
+    --color-success-emphasis:#10bd9d;
+    --color-info-emphasis:#3184f7;
+    --color-gray-emphasis:#99AABA;
+    --color-light-emphasis:#DFE5EF;
+}
+
+[data-color-theme="BLUE_THEME"]{
+    --color-primary: #5D87FF;
+    --color-primary-emphasis:#4f73d9;   
+    --color-secondary: #49BEFF;
+    --color-secondary-emphasis:#3ea2d9;
+    --color-lightprimary:#5D87FF20;
+    --color-lightsecondary:#49BEFF20;
+}
+[data-color-theme="AQUA_THEME"]{
+    --color-primary: #0074BA;
+    --color-bghover:#00639e ; 
+    --color-primary-emphasis:#00639e;   
+    --color-secondary-emphasis:#3cb7a0;
+    --color-secondary: #47D7BC;
+    --color-lightprimary:#0074BA20;
+    --color-lightsecondary:#00639e20;
+}
+[data-color-theme="PURPLE_THEME"]{
+    --color-primary: #763EBD;
+    --color-primary-emphasis:#6435a1;   
+    --color-secondary-emphasis:#7fb0b5;
+    --color-secondary: #49BEFF;
+    --color-lightprimary:#763EBD20;
+    --color-lightsecondary:#49BEFF20;
+}
+[data-color-theme="GREEN_THEME"]{
+    --color-primary: #0A7EA4;
+    --color-primary-emphasis:#096b8b;   
+    --color-secondary-emphasis:#d4e069;
+    --color-secondary: #CCDA4E;
+    --color-lightprimary:#0A7EA420;
+    --color-lightsecondary:#CCDA4E20;
+    
+}
+[data-color-theme="CYAN_THEME"]{
+    --color-primary: #01C0C8;
+    --color-primary-emphasis:#01a3aa;   
+    --color-secondary-emphasis:#d58066;
+    --color-secondary: #FB9678;
+    --color-lightprimary:#01C0C820;
+    --color-lightsecondary:#FB967820;
+}
+[data-color-theme="ORANGE_THEME"]{
+    --color-primary: #FA896B;
+    --color-primary-emphasis:#d5745b;   
+    --color-secondary-emphasis:#00639e;
+    --color-secondary: #0074BA;
+    --color-lightprimary:#FA896B20;
+    --color-lightsecondary:#0074BA20;
+}
+
+

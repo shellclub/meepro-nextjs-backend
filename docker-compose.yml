@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  mongo1:
+    image: mongo:6.0
+    container_name: mongo1
+    ports:
+      - 27017:27017
+    networks:
+      - mongo-cluster
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 88888888
+      MONGO_REPLICA_SET_NAME: rs0
+
+  mongo2:
+    image: mongo:6.0
+    container_name: mongo2
+    ports:
+      - 27018:27017
+    networks:
+      - mongo-cluster
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 88888888
+      MONGO_REPLICA_SET_NAME: rs0
+
+  mongo3:
+    image: mongo:6.0
+    container_name: mongo3
+    ports:
+      - 27019:27017
+    networks:
+      - mongo-cluster
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 88888888
+      MONGO_REPLICA_SET_NAME: rs0
+
+  setup:
+    image: mongo:6.0
+    container_name: mongo-setup
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    networks:
+      - mongo-cluster
+    entrypoint: >
+      bash -c "
+      sleep 10;
+      echo 'Configuring replica set...';
+      mongo --host mongo1:27017 --eval \"
+      rs.initiate({
+          _id: 'rs0',
+          members: [
+              { _id: 0, host: 'mongo1:27017' },
+              { _id: 1, host: 'mongo2:27017' },
+              { _id: 2, host: 'mongo3:27017' }
+          ]
+      })\";
+      echo 'Replica set configured!';
+      "
+
+networks:
+  mongo-cluster:

@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  provider          Json?
+  /// Field referred in an index, but found no data to define the type.
+  providerAccountId Json?
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  sessionToken Json?  @unique
+}
+
+model Userrole {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model VerificationToken {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  identifier Json?
+  /// Field referred in an index, but found no data to define the type.
+  token      Json?  @unique
+
+  @@unique([identifier, token])
+}
+
+model product_attributes {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  attr_name String
+  size1     String
+  size2     String
+}
+
+model products {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  attributes       String
+  brand            String
+  business_number  String
+  capacity         String
+  derivation       String
+  description      String
+  discount         String
+  discount_type    String
+  expiration_date  DateTime @db.Date
+  foodnumber       String
+  images           String
+  packaging        String
+  parcel_weight    String
+  pettype          String
+  product_category String
+  product_id       String
+  product_name     String
+  production_date  DateTime @db.Date
+  retail_price     String
+  shelflift        String
+  sku              String
+  weight           String
+  wholesale_price  String
+}
+
+model User {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  createAt DateTime? @default(now())
+  email    String   @unique
+  fname    String
+  lname    String
+  password String
+  role     String   @default("Admin")
+  @@map("user")
+}
